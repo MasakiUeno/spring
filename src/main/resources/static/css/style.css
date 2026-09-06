@@ -1,0 +1,911 @@
+@charset "UTF-8";
+
+/* =========================================
+   デザイントークン
+   ========================================= */
+   :root {
+   	--color-bg: #F5F6F4;
+   	--color-surface: #FFFFFF;
+   	--color-text: #1C1F23;
+   	--color-text-secondary: #6B7280;
+   	--color-border: #E2E4E8;
+   	--color-accent: #2563EB;
+   	--color-accent-hover: #1D4ED8;
+   	--color-danger: #C0392B;
+   	--color-sale: #DC2626;
+   	--color-star: #F5A623;
+   	--color-navy: #0F1F3D;
+   	--color-navy-light: #1C2F52;
+   	--color-on-navy: #FFFFFF;
+   	--color-on-navy-secondary: rgba(255, 255, 255, 0.7);
+
+   	--font-base: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', Meiryo, system-ui, -apple-system, sans-serif;
+
+   	--space-1: 4px;
+   	--space-2: 8px;
+   	--space-3: 16px;
+   	--space-4: 24px;
+   	--space-5: 32px;
+
+   	--radius: 6px;
+   }
+
+/* =========================================
+   ベース
+   ========================================= */
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: var(--font-base);
+	color: var(--color-text);
+	background: var(--color-bg);
+	line-height: 1.6;
+}
+
+a {
+	color: var(--color-accent);
+}
+
+/* =========================================
+   ボタン
+   ========================================= */
+.btn {
+	display: inline-block;
+	padding: 10px 20px;
+	background: var(--color-surface);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius);
+	text-decoration: none;
+	color: var(--color-text);
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.btn:hover {
+	border-color: var(--color-accent);
+	color: var(--color-accent);
+}
+
+.btn-primary {
+	display: block;
+	width: 100%;
+	padding: 12px 20px;
+	background: var(--color-accent);
+	border: 1px solid var(--color-accent);
+	border-radius: var(--radius);
+	color: #FFFFFF;
+	font-size: 15px;
+	font-weight: 600;
+	cursor: pointer;
+	text-align: center;
+}
+
+.btn-primary:hover {
+	background: var(--color-accent-hover);
+	border-color: var(--color-accent-hover);
+}
+
+.btn-blue {
+	display: inline-block;
+	padding: 10px 20px;
+	background: var(--color-accent);
+	border: 1px solid var(--color-accent);
+	border-radius: var(--radius);
+	text-decoration: none;
+	color: #FFFFFF;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.btn-blue:hover {
+	background: var(--color-accent-hover);
+	border-color: var(--color-accent-hover);
+}
+
+.btn-blue-outline {
+	display: inline-block;
+	padding: 10px 20px;
+	background: var(--color-surface);
+	border: 1px solid var(--color-accent);
+	border-radius: var(--radius);
+	text-decoration: none;
+	color: var(--color-accent);
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.btn-blue-outline:hover {
+	background: var(--color-accent);
+	color: #FFFFFF;
+}
+
+.product-top-layout {
+	display: flex;
+	gap: var(--space-5);
+	align-items: flex-start;
+}
+
+.btn-primary-inline {
+	display: inline-block;
+	padding: 12px 32px;
+	background: var(--color-accent);
+	border: 1px solid var(--color-accent);
+	border-radius: var(--radius);
+	color: #FFFFFF;
+	font-size: 15px;
+	font-weight: 600;
+	cursor: pointer;
+	text-align: center;
+}
+
+.btn-primary-inline:hover {
+	background: var(--color-accent-hover);
+	border-color: var(--color-accent-hover);
+}
+
+.btn-red {
+	display: inline-block;
+	padding: 10px 20px;
+	background: var(--color-surface);
+	border: 1px solid var(--color-danger);
+	border-radius: var(--radius);
+	text-decoration: none;
+	color: var(--color-danger);
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.btn-red:hover {
+	background: var(--color-danger);
+	color: #FFFFFF;
+}
+
+/* =========================================
+   ヘッダー
+   ========================================= */
+.site-header {
+	background: var(--color-navy);
+	padding: var(--space-3) var(--space-4);
+}
+
+.site-header-inner {
+	display: flex;
+	align-items: center;
+	gap: var(--space-4);
+}
+
+.site-logo {
+	color: var(--color-on-navy);
+	font-size: 18px;
+	font-weight: 600;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.header-search {
+	display: flex;
+	gap: var(--space-2);
+	flex: 1;
+}
+
+.header-search input[type="text"],
+.header-search select {
+	padding: 8px 12px;
+	border: none;
+	border-radius: var(--radius);
+	font-size: 14px;
+	font-family: inherit;
+	color: var(--color-text);
+}
+
+.header-search input[type="text"] {
+	flex: 1;
+	max-width: 280px;
+}
+
+.header-search-btn {
+	padding: 8px 20px;
+	background: var(--color-navy-light);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: var(--radius);
+	color: var(--color-on-navy);
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.header-search-btn:hover {
+	background: rgba(255, 255, 255, 0.15);
+}
+
+.header-account {
+	display: flex;
+	align-items: center;
+	gap: var(--space-3);
+	margin-left: auto;
+	white-space: nowrap;
+}
+
+.header-mypage-btn {
+	padding: 8px 18px;
+	background: var(--color-accent);
+	border: 1px solid var(--color-accent);
+	border-radius: var(--radius);
+	color: #FFFFFF;
+	font-size: 14px;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.header-mypage-btn:hover {
+	background: var(--color-accent-hover);
+	border-color: var(--color-accent-hover);
+}
+
+.header-user-info {
+	display: flex;
+	flex-direction: column;
+	font-size: 12px;
+	line-height: 1.5;
+	color: var(--color-on-navy-secondary);
+}
+
+.header-user-info a {
+	color: var(--color-on-navy);
+	text-decoration: underline;
+}
+
+/* =========================================
+   フッター
+   ========================================= */
+.site-footer {
+	background: var(--color-navy);
+	color: var(--color-on-navy-secondary);
+	text-align: center;
+	padding: var(--space-4);
+	margin-top: var(--space-5);
+	font-size: 13px;
+}
+
+/* =========================================
+   ログイン・登録画面
+   ========================================= */
+.auth-page {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: var(--space-4);
+}
+
+.auth-logo {
+	margin-bottom: var(--space-4);
+	font-size: 20px;
+	font-weight: 600;
+	text-decoration: none;
+	color: var(--color-text);
+}
+
+.auth-card {
+	width: 100%;
+	max-width: 380px;
+	background: var(--color-surface);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius);
+	padding: var(--space-5);
+}
+
+.auth-card h2 {
+	margin: 0 0 var(--space-4);
+	font-size: 18px;
+}
+
+.field {
+	margin-bottom: var(--space-3);
+}
+
+.field label {
+	display: block;
+	margin-bottom: var(--space-1);
+	font-size: 13px;
+	color: var(--color-text-secondary);
+}
+
+.field input,
+.field select {
+	width: 100%;
+	padding: 10px 12px;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius);
+	font-size: 14px;
+	font-family: inherit;
+	color: var(--color-text);
+	background: var(--color-surface);
+}
+
+.field input:focus,
+.field select:focus {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 1px;
+	border-color: var(--color-accent);
+}
+
+.error-message {
+	margin-bottom: var(--space-3);
+	padding: var(--space-2) var(--space-3);
+	background: #FBEAE8;
+	border: 1px solid var(--color-danger);
+	border-radius: var(--radius);
+	color: var(--color-danger);
+	font-size: 13px;
+}
+
+.auth-footer {
+	margin-top: var(--space-4);
+	text-align: center;
+}
+
+.auth-footer .btn {
+	width: 100%;
+	text-align: center;
+	margin-top: var(--space-2);
+}
+
+.section-title {
+	margin: var(--space-5) 0 var(--space-3);
+	padding-left: var(--space-3);
+	border-left: 4px solid var(--color-accent);
+	font-size: 20px;
+}
+
+.sale-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-4);
+	margin-bottom: var(--space-5);
+}
+
+.sale-card {
+	width: 450px;
+	max-width: 100%;
+	background: var(--color-surface);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius);
+	padding: var(--space-3);
+}
+
+.sale-image {
+	display: block;
+	width: 100%;
+	aspect-ratio: 450 / 300;
+	object-fit: cover;
+	border-radius: var(--radius);
+}
+
+.sale-category {
+	margin: 0 0 var(--space-1);
+	font-size: 12px;
+	color: var(--color-text-secondary);
+}
+
+.sale-product-name {
+	margin: var(--space-2) 0 0;
+	color: var(--color-text);
+}
+
+.sale-name {
+	margin: var(--space-2) 0 var(--space-1);
+	font-weight: 600;
+}
+
+.sale-price {
+	margin: 0;
+	display: flex;
+	align-items: baseline;
+	gap: var(--space-2);
+}
+
+.price-original {
+	text-decoration: line-through;
+	color: var(--color-text-secondary);
+	font-size: 14px;
+}
+
+.price-discounted {
+	color: var(--color-sale);
+	font-weight: 700;
+	font-size: 18px;
+}
+
+.discount-badge {
+	color: var(--color-sale);
+	font-size: 13px;
+}
+
+.product-thumb {
+	display: block;
+	width: 450px;
+	height: 300px;
+	max-width: 100%;
+	object-fit: cover;
+	border-radius: var(--radius);
+	margin-bottom: var(--space-2);
+}
+
+.product-card {
+	width: 450px;
+	max-width: 100%;
+	background: var(--color-surface);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius);
+	padding: var(--space-3);
+}
+
+.product-price {
+	margin: 0;
+	font-size: 14px;
+	color: var(--color-text-secondary);
+}
+
+.product-price-tax {
+	margin: 2px 0 0;
+	font-size: 18px;
+	font-weight: 700;
+	color: var(--color-text);
+}
+
+.product-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-4);
+	margin: var(--space-4) 0 var(--space-5);
+}
+
+/* =========================================
+   商品詳細画面
+   ========================================= */
+.product-detail-layout {
+	display: flex;
+	gap: var(--space-5);
+	align-items: flex-start;
+}
+
+.product-main {
+	flex: 1;
+	min-width: 0;
+}
+
+.product-detail-image {
+	display: block;
+	width: 450px;
+	height: 300px;
+	max-width: 100%;
+	object-fit: cover;
+	border-radius: var(--radius);
+	margin-bottom: var(--space-4);
+}
+
+.product-detail-name {
+	margin: 0 0 var(--space-1);
+	font-size: 24px;
+}
+
+.product-detail-maker {
+	margin: 0 0 var(--space-4);
+	font-size: 14px;
+	color: var(--color-text-secondary);
+}
+
+.product-detail-comment {
+	margin: 0 0 var(--space-4);
+	line-height: 1.8;
+}
+
+.product-actions {
+	display: flex;
+	gap: var(--space-3);
+	margin-bottom: var(--space-5);
+}
+
+.product-sidebar {
+	width: 260px;
+	flex-shrink: 0;
+	background: var(--color-surface);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius);
+	padding: var(--space-4);
+	position: sticky;
+	top: var(--space-4);
+}
+
+.sidebar-price,
+.sidebar-price-tax,
+.sidebar-stock {
+	margin: 0 0 var(--space-2);
+	font-size: 14px;
+	color: var(--color-text);
+}
+
+.cart-form .btn-primary {
+	margin-bottom: var(--space-3);
+}
+
+/* =========================================
+   口コミ
+   ========================================= */
+.review-section-title {
+	margin: var(--space-5) 0 var(--space-3);
+	padding-left: var(--space-3);
+	border-left: 4px solid var(--color-accent);
+	font-size: 20px;
+}
+
+.review-card {
+	padding: var(--space-3) 0;
+	border-bottom: 1px solid var(--color-border);
+}
+
+.review-name {
+	margin: 0 0 var(--space-1);
+	font-weight: 600;
+}
+
+.review-date {
+	margin: 0 0 var(--space-2);
+	font-size: 12px;
+	color: var(--color-text-secondary);
+}
+
+.review-comment {
+	margin: 0 0 var(--space-2);
+	line-height: 1.7;
+}
+
+.review-stars {
+	margin: 0;
+	color: var(--color-star);
+	letter-spacing: 1px;
+}
+
+/* =========================================
+   共通：区切り線
+   ========================================= */
+hr {
+	border: none;
+	border-top: 1px solid var(--color-border);
+	margin: var(--space-4) 0;
+}
+
+/* =========================================
+   購入品詳細画面
+   ========================================= */
+.order-summary {
+	margin: var(--space-4) 0;
+}
+
+.order-summary-row {
+	padding: var(--space-2) 0;
+}
+
+.order-summary-row p {
+	margin: 0 0 var(--space-1);
+}
+
+.option-group {
+	margin: var(--space-4) 0;
+}
+
+.option-group h3 {
+	margin: 0 0 var(--space-3);
+	font-size: 16px;
+}
+
+.option-card {
+	background: var(--color-surface);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius);
+	padding: var(--space-3) var(--space-4);
+	margin-bottom: var(--space-3);
+}
+
+.option-card:has(input:checked) {
+	border-color: var(--color-accent);
+}
+
+.option-radio {
+	display: block;
+	margin-bottom: var(--space-2);
+	font-weight: 600;
+}
+
+.option-fields {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+	padding-left: var(--space-4);
+}
+
+.option-fields label {
+	display: flex;
+	align-items: center;
+	gap: var(--space-2);
+	font-size: 14px;
+	color: var(--color-text-secondary);
+}
+
+.option-fields input {
+	flex: 1;
+	padding: 8px 10px;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius);
+	font-size: 14px;
+	font-family: inherit;
+	color: var(--color-text);
+}
+
+.option-fields input:focus {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 1px;
+	border-color: var(--color-accent);
+}
+
+.purchase-total {
+	margin: var(--space-4) 0;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+/* =========================================
+   購入品確認画面
+   ========================================= */
+.confirm-actions {
+	display: flex;
+	align-items: center;
+	gap: var(--space-4);
+	margin-top: var(--space-4);
+}
+
+/* =========================================
+   購入完了画面
+   ========================================= */
+.complete-message {
+	margin: var(--space-4) 0 var(--space-5);
+	font-size: 16px;
+}
+
+.complete-item {
+	display: flex;
+	gap: var(--space-4);
+	align-items: center;
+	padding: var(--space-3) 0;
+	border-bottom: 1px solid var(--color-border);
+}
+
+.complete-item-image {
+	display: block;
+	width: 450px;
+	height: 300px;
+	max-width: 100%;
+	object-fit: cover;
+	border-radius: var(--radius);
+	flex-shrink: 0;
+}
+
+.complete-item p {
+	margin: 0 0 var(--space-1);
+}
+
+.complete-address {
+	margin: var(--space-4) 0 var(--space-5);
+}
+
+/* =========================================
+   カート追加画面
+   ========================================= */
+.cart-add-message {
+	margin: var(--space-4) 0 var(--space-5);
+	font-size: 16px;
+}
+
+.cart-add-item {
+	display: flex;
+	gap: var(--space-4);
+	align-items: center;
+	padding-bottom: var(--space-4);
+	margin-bottom: var(--space-4);
+	border-bottom: 1px solid var(--color-border);
+}
+
+.cart-add-item-image {
+	display: block;
+	width: 450px;
+	height: 300px;
+	max-width: 100%;
+	object-fit: cover;
+	border-radius: var(--radius);
+	flex-shrink: 0;
+}
+
+.cart-add-item p {
+	margin: 0 0 var(--space-1);
+}
+
+.cart-add-actions {
+	display: flex;
+	align-items: center;
+	gap: var(--space-3);
+}
+
+/* =========================================
+   カート内詳細画面
+   ========================================= */
+.cart-layout {
+	display: flex;
+	gap: var(--space-5);
+	align-items: flex-start;
+}
+
+.cart-main {
+	flex: 1;
+	min-width: 0;
+}
+
+.cart-item {
+	display: flex;
+	gap: var(--space-4);
+	align-items: flex-start;
+	padding: var(--space-4) 0;
+	border-bottom: 1px solid var(--color-border);
+}
+
+.cart-item-image {
+	display: block;
+	width: 450px;
+	height: 300px;
+	max-width: 100%;
+	object-fit: cover;
+	border-radius: var(--radius);
+	flex-shrink: 0;
+}
+
+.cart-item-info p {
+	margin: 0 0 var(--space-1);
+}
+
+.cart-item-actions {
+	display: flex;
+	align-items: center;
+	gap: var(--space-3);
+	margin-top: var(--space-2);
+}
+
+.cart-quantity-form select {
+	padding: 8px 10px;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius);
+	font-size: 14px;
+	font-family: inherit;
+	color: var(--color-text);
+}
+
+.cart-quantity-form select:focus {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 1px;
+	border-color: var(--color-accent);
+}
+
+.cart-sidebar {
+	width: 260px;
+	flex-shrink: 0;
+	background: var(--color-surface);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius);
+	padding: var(--space-4);
+	position: sticky;
+	top: var(--space-4);
+}
+
+.cart-sidebar p {
+	margin: 0 0 var(--space-2);
+	font-size: 14px;
+	color: var(--color-text);
+}
+
+.cart-sidebar .btn {
+	display: block;
+	width: 100%;
+	text-align: center;
+	margin-top: var(--space-3);
+}
+
+/* =========================================
+   口コミ投稿画面
+   ========================================= */
+.review-form-product {
+	margin: 0 0 var(--space-4);
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.review-field {
+	margin-bottom: var(--space-3);
+}
+
+.review-field label {
+	display: block;
+	font-size: 13px;
+	color: var(--color-text-secondary);
+}
+
+.review-field select,
+.review-field input[type="text"],
+.review-field input[type="email"],
+.review-field textarea {
+	display: block;
+	margin-top: var(--space-1);
+	width: 100%;
+	padding: 10px 12px;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius);
+	font-size: 14px;
+	font-family: inherit;
+	color: var(--color-text);
+}
+
+.review-field select:focus,
+.review-field input:focus,
+.review-field textarea:focus {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 1px;
+	border-color: var(--color-accent);
+}
+
+.review-field input[type="file"] {
+	display: block;
+	margin-top: var(--space-1);
+	font-size: 14px;
+}
+
+/* =========================================
+   マイページ
+   ========================================= */
+.profile-card {
+	max-width: 480px;
+	background: var(--color-surface);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius);
+	padding: var(--space-4) var(--space-5);
+	margin-bottom: var(--space-4);
+}
+
+.profile-row {
+	display: flex;
+	padding: var(--space-3) 0;
+	border-bottom: 1px solid var(--color-border);
+}
+
+.profile-row:last-child {
+	border-bottom: none;
+}
+
+.profile-label {
+	width: 120px;
+	flex-shrink: 0;
+	margin: 0;
+	color: var(--color-text-secondary);
+	font-size: 14px;
+}
+
+.profile-value {
+	margin: 0;
+	color: var(--color-text);
+	font-size: 14px;
+}
+
+.profile-actions {
+	display: flex;
+	gap: var(--space-3);
+}

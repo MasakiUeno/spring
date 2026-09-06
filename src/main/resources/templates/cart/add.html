@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>カート追加</title>
+<link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+	<div th:replace="~{fragments/header :: header}"></div>
+
+	<h2 class="section-title">カートに追加しました</h2>
+
+	<div class="cart-add-item">
+		<img class="cart-add-item-image" th:src="@{${product.imgPath}}" th:alt="${product.productName}">
+		<div>
+			<p th:text="'商品名：' + ${product.productName}">商品名</p>
+			<p th:text="'数量：' + ${quantity}">数量：1</p>
+			<p th:text="'カート内合計（税込）：' + ${cartTotal} + '円'">カート内合計（税込）：0円</p>
+		</div>
+	</div>
+
+	<div class="cart-add-actions">
+		<a th:href="@{/purchase}" class="btn-primary-inline">レジに進む</a>
+		<a th:href="@{/cart}" class="btn">カートに移動</a>
+		<a th:href="@{/top}" class="btn">TOP画面に戻る</a>
+	</div>
+	<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

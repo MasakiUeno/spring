@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ユーザー新規登録</title>
+<link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+	<div class="auth-page">
+		<a th:href="@{/top}" class="auth-logo">Cytech EC.</a>
+
+		<div class="auth-card">
+			<h2>ユーザー新規登録</h2>
+
+			<p th:if="${error}" class="error-message" th:text="${error}"></p>
+
+			<form th:action="@{/users}" method="post">
+				<div class="field">
+					<label for="userName">名前</label>
+					<input type="text" id="userName" name="userName">
+				</div>
+				<div class="field">
+					<label for="userNameKana">ふりがな</label>
+					<input type="text" id="userNameKana" name="userNameKana">
+				</div>
+				<div class="field">
+					<label for="phone">電話番号</label>
+					<input type="text" id="phone" name="phone">
+				</div>
+				<div class="field">
+					<label for="email">メールアドレス</label>
+					<input type="text" id="email" name="email">
+				</div>
+				<div class="field">
+					<label for="password">パスワード</label>
+					<input type="password" id="password" name="password">
+				</div>
+				<div class="field">
+					<label for="passwordConfirm">パスワード確認</label>
+					<input type="password" id="passwordConfirm" name="passwordConfirm">
+				</div>
+
+				<button type="submit" class="btn-primary">登録</button>
+			</form>
+
+			<div class="auth-footer">
+				<a th:href="@{/login}" class="btn">戻る</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

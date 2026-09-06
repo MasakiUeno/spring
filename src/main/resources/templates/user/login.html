@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ログイン</title>
+<link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+	<div class="auth-page">
+		<a th:href="@{/top}" class="auth-logo">Cytech EC.</a>
+
+		<div class="auth-card">
+			<h2>ログイン</h2>
+
+			<p th:if="${error}" class="error-message" th:text="${error}"></p>
+
+			<form th:action="@{/login}" method="post">
+				<div class="field">
+					<label for="email">メールアドレス</label>
+					<input type="text" id="email" name="email">
+				</div>
+				<div class="field">
+					<label for="password">パスワード</label>
+					<input type="password" id="password" name="password">
+				</div>
+
+				<button type="submit" class="btn-primary">ログイン</button>
+			</form>
+
+			<div class="auth-footer">
+				<a th:href="@{/users/new}" class="btn">新規登録</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

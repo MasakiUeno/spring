@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>購入完了</title>
+<link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+	<div th:replace="~{fragments/header :: header}"></div>
+
+	<h2 class="section-title">ご注文ありがとうございました</h2>
+	<p class="complete-message">購入が完了しました。</p>
+
+	<div class="complete-item" th:each="item : ${items}">
+		<img class="complete-item-image" th:src="@{${item.product.imgPath}}" th:alt="${item.product.productName}">
+		<div>
+			<p th:text="${item.product.productName}">商品名</p>
+			<p th:text="${item.quantity} + '個'">数量</p>
+			<p th:text="'消費税込み価格：' + ${item.taxSubtotal} + '円'">消費税込み価格：0円</p>
+		</div>
+	</div>
+
+	<p class="complete-address" th:text="'お届け先住所：' + ${address}">お届け先住所：</p>
+
+	<a th:href="@{/top}" class="btn-primary-inline">TOP画面に戻る</a>
+	<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

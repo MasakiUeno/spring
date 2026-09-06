@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>購入品詳細</title>
+<link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+	<div th:replace="~{fragments/header :: header}"></div>
+
+	<h2 class="section-title">購入品詳細（お届け先・お支払い情報）</h2>
+
+	<div class="order-summary">
+		<div class="order-summary-row" th:each="item : ${items}">
+			<p th:text="${item.product.productName} + ' × ' + ${item.quantity}">商品名 × 数量</p>
+			<p th:text="'小計：' + ${item.subtotal} + '円'">小計：0円</p>
+		</div>
+	</div>
+
+	<hr>
+
+	<form th:action="@{/purchase/confirm}" method="post" class="purchase-form">
+
+		<div class="option-group">
+			<h3>受け取り場所</h3>
+
+			<div class="option-card">
+				<label class="option-radio"><input type="radio" name="deliveryChoice" value="1" checked> 受け取り場所1</label>
+				<div class="option-fields">
+					<label>名前：<input type="text" name="name1"></label>
+					<label>住所：<input type="text" name="address1"></label>
+					<label>アパート名：<input type="text" name="apartment1"></label>
+				</div>
+			</div>
+
+			<div class="option-card">
+				<label class="option-radio"><input type="radio" name="deliveryChoice" value="2"> 受け取り場所2</label>
+				<div class="option-fields">
+					<label>名前：<input type="text" name="name2"></label>
+					<label>住所：<input type="text" name="address2"></label>
+					<label>アパート名：<input type="text" name="apartment2"></label>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="option-group">
+			<h3>お支払い情報</h3>
+
+			<div class="option-card">
+				<label class="option-radio"><input type="radio" name="paymentChoice" value="1" checked> お支払い情報1</label>
+				<div class="option-fields">
+					<label>カード番号：<input type="text" name="cardNumber1" placeholder="000000000000000"></label>
+					<label>有効期限：<input type="text" name="cardExpiry1" placeholder="MM/YY" maxlength="6"></label>
+				</div>
+			</div>
+
+			<div class="option-card">
+				<label class="option-radio"><input type="radio" name="paymentChoice" value="2"> お支払い情報2</label>
+				<div class="option-fields">
+					<label>カード番号：<input type="text" name="cardNumber2" placeholder="000000000000000"></label>
+					<label>有効期限：<input type="text" name="cardExpiry2" placeholder="MM/YY" maxlength="6"></label>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<p class="purchase-total" th:text="'合計金額：' + ${total} + '円'">合計金額：0円</p>
+
+		<button type="submit" class="btn-primary-inline">確認</button>
+	</form>
+
+	<hr>
+	<a th:href="@{/top}" class="btn">TOP画面に戻る</a>
+	<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>口コミ投稿</title>
+<link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+	<div th:replace="~{fragments/header :: header}"></div>
+
+	<h2 class="section-title">口コミ投稿</h2>
+
+	<p class="review-form-product" th:text="${product.productName}">商品名</p>
+
+	<form th:action="@{/reviews}" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="productId" th:value="${product.productId}">
+
+		<div class="review-field">
+			<label>評価：
+				<select name="rating">
+					<option value="5">★★★★★</option>
+					<option value="4">★★★★</option>
+					<option value="3">★★★</option>
+					<option value="2">★★</option>
+					<option value="1">★</option>
+				</select>
+			</label>
+		</div>
+
+		<div class="review-field">
+			<label>ユーザー名（任意）：<input type="text" name="dummyUserName"></label>
+		</div>
+
+		<div class="review-field">
+			<label>メールアドレス：
+				<input type="email" name="contactEmail">
+			</label>
+		</div>
+
+		<div class="review-field">
+			<label>コメント：<br>
+				<textarea name="comment" rows="4" cols="40"></textarea>
+			</label>
+		</div>
+
+		<div class="review-field">
+			<label>画像添付：
+				<input type="file" name="reviewImage" accept="image/*">
+			</label>
+		</div>
+
+		<button type="submit" class="btn-primary-inline">投稿</button>
+	</form>
+
+	<hr>
+	<a th:href="@{/products/{id}(id=${product.productId})}" class="btn">商品詳細に戻る</a>
+	<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

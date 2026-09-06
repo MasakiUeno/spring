@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>カート内詳細</title>
+<link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+	<div th:replace="~{fragments/header :: header}"></div>
+
+	<div class="cart-layout">
+		<div class="cart-main">
+			<h2 class="section-title">カート内詳細</h2>
+
+			<p th:if="${#lists.isEmpty(items)}">カートに商品がありません。</p>
+
+			<div class="cart-item" th:each="item : ${items}">
+				<img class="cart-item-image" th:src="@{${item.product.imgPath}}" th:alt="${item.product.productName}">
+
+				<div class="cart-item-info">
+					<p th:text="'商品名：' + ${item.product.productName}">商品名：</p>
+
+					<div class="cart-item-actions">
+						<form th:action="@{/cart/update/{cartId}(cartId=${item.cartId})}" method="post" class="cart-quantity-form">
+							<label>数量：
+								<select name="quantity" onchange="this.form.submit()">
+									<option th:each="i : ${#numbers.sequence(1, item.product.stock)}"
+										th:value="${i}" th:text="${i}"
+										th:selected="${i == item.quantity}">1</option>
+								</select>
+							</label>
+						</form>
+
+						<form th:action="@{/cart/delete/{cartId}(cartId=${item.cartId})}" method="post">
+							<button type="submit" class="btn-red">削除</button>
+						</form>
+					</div>
+
+					<p th:text="'価格：' + ${item.subtotal} + '円'">価格：0円</p>
+					<p th:text="'消費税込み金額：' + ${item.taxSubtotal} + '円'">消費税込み金額：0円</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="cart-sidebar">
+			<p th:text="'個数：' + ${totalCount} + '点'">個数：0点</p>
+			<p th:text="'価格：' + ${subtotal} + '円'">価格：0円</p>
+			<p th:text="'消費税込み金額：' + ${taxTotal} + '円'">消費税込み金額：0円</p>
+			<a th:href="@{/purchase}" class="btn-primary-inline">レジに進む</a>
+		</div>
+	</div>
+	<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

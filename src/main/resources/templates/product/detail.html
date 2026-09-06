@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>商品詳細</title>
+<link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+	<div th:replace="~{fragments/header :: header}"></div>
+
+	<div class="product-top-layout">
+		<img class="product-detail-image" th:src="@{${product.imgPath}}" th:alt="${product.productName}">
+
+		<div>
+			<h2 class="product-detail-name" th:text="${product.productName}">商品名</h2>
+			<p class="product-detail-maker" th:text="'メーカー：' + ${companyName}">メーカー：メーカー名</p>
+			<p class="product-detail-comment" th:text="${product.comment}">商品説明</p>
+
+			<div class="product-actions">
+				<a th:href="@{/purchase/{id}(id=${product.productId})}" class="btn-blue-outline">単品購入</a>
+				<a th:href="@{/reviews/new/{id}(id=${product.productId})}" class="btn-blue-outline">口コミ投稿</a>
+			</div>
+		</div>
+
+		<div class="product-sidebar">
+			<form th:action="@{/cart/add/{id}(id=${product.productId})}" method="post" class="cart-form">
+				<button type="submit" class="btn-primary">カートに入れる</button>
+				<label>数量：
+					<select name="quantity">
+						<option th:each="i : ${#numbers.sequence(1, product.stock)}"
+							th:value="${i}" th:text="${i}">1</option>
+					</select>
+				</label>
+			</form>
+
+			<p class="sidebar-price" th:text="'税抜価格：' + ${product.price} + '円'">税抜価格：0円</p>
+			<p class="sidebar-price-tax" th:text="'税込価格：' + ${product.taxPrice} + '円'">税込価格：0円</p>
+			<p class="sidebar-stock" th:text="'在庫数：' + ${product.stock} + '点'">在庫数：0点</p>
+		</div>
+	</div>
+
+	<h3>口コミ</h3>
+	<p th:if="${#lists.isEmpty(reviews)}">まだ口コミがありません。</p>
+	<div class="review-card" th:each="review : ${reviews}">
+		<p class="review-name" th:text="${review.dummyUserName}">表示名</p>
+		<p class="review-date" th:text="${#temporals.format(review.createdAt, 'yyyy/MM/dd')}">投稿日</p>
+		<p class="review-comment" th:text="${review.comment}">コメント</p>
+		<p class="review-stars">
+			<span th:each="i : ${#numbers.sequence(1, 5)}"
+				th:text="${i <= review.rating} ? '★' : '☆'"></span>
+		</p>
+	</div>
+
+	<a th:href="@{/products}" class="btn-blue-outline">商品一覧に戻る</a>
+	<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

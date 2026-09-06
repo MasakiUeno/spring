@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>マイページ</title>
+<link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+	<div th:replace="~{fragments/header :: header}"></div>
+
+	<h2 class="section-title">マイページ</h2>
+
+	<div class="profile-card">
+		<div class="profile-row">
+			<p class="profile-label">名前</p>
+			<p class="profile-value" th:text="${userName}"></p>
+		</div>
+		<div class="profile-row">
+			<p class="profile-label">ふりがな</p>
+			<p class="profile-value" th:text="${userNameKana}"></p>
+		</div>
+		<div class="profile-row">
+			<p class="profile-label">電話番号</p>
+			<p class="profile-value" th:text="${phone}"></p>
+		</div>
+	</div>
+
+	<div class="profile-actions">
+		<a th:href="@{/top}" class="btn-primary-inline">TOP画面に戻る</a>
+		<a th:href="@{/logout}" class="btn-red">ログアウト</a>
+	</div>
+
+	<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

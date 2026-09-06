@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>購入品確認</title>
+<link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+	<div th:replace="~{fragments/header :: header}"></div>
+
+	<h2 class="section-title">購入品確認</h2>
+
+	<div class="order-summary">
+		<div class="order-summary-row" th:each="item : ${items}">
+			<p th:text="${item.product.productName}">商品名</p>
+			<p th:text="${item.quantity} + '個'">個数</p>
+		</div>
+	</div>
+
+	<hr>
+
+	<p class="purchase-total" th:text="'合計金額：' + ${total} + '円'">合計金額：0円</p>
+
+	<hr>
+
+	<div class="option-group">
+		<h3>受け取り場所</h3>
+		<p>名前：<span th:text="${name}"></span></p>
+		<p>住所：<span th:text="${address}"></span></p>
+		<p>アパート名：<span th:text="${apartment}"></span></p>
+	</div>
+
+	<hr>
+
+	<div class="option-group">
+		<h3>お支払い情報</h3>
+		<p>カード番号：<span th:text="${cardNumber}"></span></p>
+		<p>有効期限：<span th:text="${cardExpiry}"></span></p>
+	</div>
+
+	<div class="confirm-actions">
+		<a href="javascript:history.back()" class="btn-red">編集</a>
+
+		<form th:action="@{/purchase/complete}" method="post">
+			<button type="submit" class="btn-primary-inline">完了</button>
+		</form>
+	</div>
+	<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>
