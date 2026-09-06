@@ -110,7 +110,6 @@ public class PurchaseController {
 			return "redirect:/cart";
 		}
 
-		// 選択されたラジオボタンに応じて、実際に使う住所・カード情報を決定する
 		String name = "1".equals(deliveryChoice) ? name1 : name2;
 		String address = "1".equals(deliveryChoice) ? address1 : address2;
 		String apartment = "1".equals(deliveryChoice) ? apartment1 : apartment2;
